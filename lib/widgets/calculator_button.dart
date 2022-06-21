@@ -4,14 +4,14 @@ class CalculatorButton extends StatelessWidget {
   final String text;
   final Color buttonbackgroundColor;
   final Color buttonTextColor;
-  final Function()? onButtonClick;
+  final Function(String)? onButtonClick;
 
   const CalculatorButton({
     Key? key,
     required this.text,
     required this.buttonbackgroundColor,
     required this.buttonTextColor,
-    required this.onButtonClick,
+    this.onButtonClick,
   }) : super(key: key);
 
   @override
@@ -25,7 +25,11 @@ class CalculatorButton extends StatelessWidget {
         width: 70,
         height: 70,
         child: TextButton(
-          onPressed: onButtonClick,
+          onPressed: () {
+            if (onButtonClick != null) {
+              onButtonClick!(text);
+            }
+          },
           child: Text(
             text,
             style: TextStyle(
