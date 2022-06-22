@@ -41,7 +41,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       operation = btnVal;
       // print('num1 -> $num1 , res -> $res, texttodisplay -> $textToDisplay');
     } else if (btnVal == '<') {
-      res = res.substring(0, res.length - 1);
+      if (res.isNotEmpty) {
+        res = res.substring(0, res.length - 1);
+      } else {
+        res = '';
+      }
     } else if (btnVal == '+/-') {
       if (res[0] != '-') {
         res = '-$res';
@@ -65,7 +69,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       }
     } else {
       res = int.parse(textToDisplay + btnVal).toString();
-      print("res -> $res");
+      // print("res -> $res");
     }
     setState(() {
       textToDisplay = res;
