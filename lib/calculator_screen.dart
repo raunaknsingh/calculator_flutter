@@ -64,7 +64,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         history = num1.toString() + operation.toString() + num2.toString();
       }
     } else {
-      res = int.parse(btnVal).toString();
+      res = int.parse(textToDisplay + btnVal).toString();
       print("res -> $res");
     }
     setState(() {
