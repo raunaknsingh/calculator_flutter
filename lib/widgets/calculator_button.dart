@@ -16,25 +16,27 @@ class CalculatorButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
-        color: buttonbackgroundColor,
-      ),
-      child: SizedBox(
-        width: 70,
-        height: 70,
-        child: TextButton(
-          onPressed: () {
-            if (onButtonClick != null) {
-              onButtonClick!(text);
-            }
-          },
-          child: Text(
-            text,
-            style: TextStyle(
-              color: buttonTextColor,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          color: buttonbackgroundColor,
+        ),
+        child: SizedBox(
+          width: 70,
+          height: 70,
+          child: TextButton(
+            onPressed: () {
+              if (onButtonClick != null) {
+                onButtonClick!(text);
+              }
+            },
+            child: Text(
+              text,
+              style: TextStyle(
+                color: buttonTextColor,
+              ),
             ),
           ),
         ),
